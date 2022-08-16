@@ -1,9 +1,11 @@
+setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+
 # R version 3.4.3 (2017-11-30) -- "Kite-Eating Tree"
 # Copyright (C) 2017 The R Foundation for Statistical Computing
 # Platform: x86_64-w64-mingw32/x64 (64-bit)
 
 # update 1: on April 5, 2020 to add novel number of contributed packages from https://cran.r-project.org/web/packages/
-# update 2: on August 16, 2022 to add missing numbers
+# update 2: on August 16, 2022 to add missing numbers and adding changes to the graph appearance
 
 library(ggplot2)
 
@@ -25,9 +27,10 @@ d
 # plotting bar graph
 p <- ggplot(data=d, aes(x = dates, y = numberOfPackages)) +
   geom_bar(stat="identity")
-p + coord_flip(ylim = c(0, 16000)) + theme_minimal() +
+p + coord_flip(xlim = c(as.Date('2017-01-10'), as.Date('2022-09-16'))) + theme_minimal() +
   scale_y_discrete(limits = numberOfPackages) +
-  ggtitle('CRAN packages') + ylab('number of packages') + xlab('year')
+  ggtitle('CRAN packages') + ylab('number of packages') + xlab('year') +
+  geom_text(aes(label=dates), vjust=-1)
 
 # saving image
-ggsave("brojPaketa.tiff", dpi=300)
+ggsave("brojPaketa.jpg", dpi=300)
