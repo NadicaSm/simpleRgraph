@@ -31,7 +31,7 @@ p <- ggplot(data=d, aes(x = dates, y = numberOfPackages)) +
 p
 p + theme_minimal() + coord_flip() +
   ggtitle('CRAN packages') + ylab('number of packages') + xlab('year') +
-  geom_text(aes(label=dates), hjust=1.3, col = "white")
+  geom_text(aes(label=dates), hjust = 1.3, col = "white")
 p
 # saving image
-ggsave("numberOfPackages.jpg", width = 10.5, height = 6, dpi=400)
+ggsave("numberOfPackages.jpg", width = 7, height = 5, dpi = 400)
