@@ -28,10 +28,10 @@ d
 # plotting bar graph
 p <- ggplot(data=d, aes(x = dates, y = numberOfPackages)) +
   geom_bar(stat="identity")
-p + coord_flip(xlim = c(as.Date('2017-01-10'), as.Date('2022-09-16'))) + theme_minimal() +
-  scale_y_discrete(limits = numberOfPackages) +
+p
+p + theme_minimal() + coord_flip() +
   ggtitle('CRAN packages') + ylab('number of packages') + xlab('year') +
-  geom_text(aes(label=dates), vjust=-1)
-
+  geom_text(aes(label=dates), hjust=1.3, col = "white")
+p
 # saving image
-ggsave("brojPaketa.jpg", dpi=300)
+ggsave("numberOfPackages.jpg", width = 10.5, height = 6, dpi=400)
