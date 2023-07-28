@@ -6,16 +6,17 @@ setwd(dirname(rstudioapi::getSourceEditorContext()$path))
 
 # update 1: on April 5, 2020 to add novel number of contributed packages from https://cran.r-project.org/web/packages/
 # update 2: on August 16, 2022 to add missing numbers and adding changes to the graph appearance
+# update 3: on July 28, 2023 to add missing numbers and adding changes to the graph appearance
 
 library(ggplot2)
 
 # dates when number of CRAN packages was checked
-dates = c('2017-02-10', '2018-02-17', '2019-02-20', '2020-04-05', '2021-03-01', '2022-08-16')
+dates = c('2017-02-10', '2018-02-17', '2019-02-20', '2020-04-05', '2021-03-01', '2022-08-16', '2023-07-28')
 dates <- as.Date(dates)
 dates
 
 # number of packages corresponding to dates
-numberOfPackages = c(10065, 12162, 13741, 15514, 17214, 18442)
+numberOfPackages = c(10065, 12162, 13741, 15514, 17214, 18442, 19880)
 
 # creating data frame
 d = list()
